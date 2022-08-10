@@ -1,0 +1,14 @@
+version: '3'
+services:
+  our_test_container:
+    build: .
+    image: "our_test_image"
+    environment:
+      - DISPLAY=unix${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
+    entrypoint: /bin/bash
+    network_mode: host
+    stdin_open: true
+    tty: true
+
